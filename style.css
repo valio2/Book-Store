@@ -17,6 +17,11 @@ body {
     min-height: 100%;
 }
 
+.wrapper {
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
 header {
     background-color: red;
     color: white;
@@ -36,39 +41,34 @@ header {
     font-size: 20px;
 }
 
-.book-pic {
-    width: 200px;
-    height: 250px;
-    display: inline-block;
-    margin: 0 auto;
-}
-
-.wrapper {
-    margin-left: 200px;
-    margin-right: 200px;
-    height: 100px;
+.main-box {
+    margin-bottom: 30px;
 }
 
 .main-box .nav {
     display: inline-block;
     vertical-align: top;
     background-color: yellow;
-    width: 300px;
+    width: 200px;
 }
 
 .main-box .content {
     display: inline-block;
     background-color: blue;
-    width: calc(100% - 305px);
+    width: calc(100% - 205px);
     
-}
-
-.main-box {
-    margin-bottom: 30px;
 }
 
 .author {
     font-style: italic;
+}
+
+.book-pic {
+    width: 200px;
+    height: 250px;
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 footer {
