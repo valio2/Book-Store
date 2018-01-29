@@ -56,7 +56,7 @@ header {
     display: inline-block;
     background-color: blue;
     width: calc(100% - 205px);
-    
+    text-align: center;
 }
 
 .author {
