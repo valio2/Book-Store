@@ -24,6 +24,8 @@ header {
 .book-pic {
     width: 200px;
     height: 250px;
+    display: inline-block;
+    margin: 0 auto;
 }
 
 .wrapper {
@@ -32,13 +34,21 @@ header {
     height: 100px;
 }
 
-.nav {
+.main-box .nav {
     display: inline-block;
+    vertical-align: top;
+    background-color: yellow;
     width: 300px;
 }
 
-.content {
+.main-box .content {
     display: inline-block;
+    background-color: blue;
+    width: calc(100% - 305px);
+    
+}
+
+.main-box {
 }
 
 .author {
