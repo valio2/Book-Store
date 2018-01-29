@@ -1,5 +1,20 @@
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: relative;
+    margin: 0;
+    padding-bottom: 3rem;
+    min-height: 100%;
 }
 
 header {
@@ -45,3 +60,16 @@ header {
     font-style: italic;
 }
 
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    text-align: center;
+    background: rgb(55, 55, 148);
+    padding: 15px;
+}
+.names {
+    margin: 5px;
+}
