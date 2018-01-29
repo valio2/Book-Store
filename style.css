@@ -1,0 +1,23 @@
+.book-pic {
+    width: 200px;
+    height: 250px;
+}
+
+.wrapper {
+    margin-left: 200px;
+    margin-right: 200px;
+    height: 100px;
+}
+
+.nav {
+    display: inline-block;
+    width: 300px;
+}
+
+.content {
+    display: inline-block;
+}
+
+.author {
+    font-style: italic;
+}
