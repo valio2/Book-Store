@@ -23,22 +23,31 @@ body {
 }
 
 header {
-    background-color: red;
+    background-color:#294464;
     color: white;
 }
 
 .logo-box {
     display: inline-block;
-    background-color: blue;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left:20px;
+
 }
 
 .logo {
     display: inline-block;
+    vertical-align:middle;
 }
 
 .logo-text {
     display: inline-block;
     font-size: 20px;
+    vertical-align:middle;
+}
+
+.logo-text-store{
+    color: #F8A001;
 }
 
 .main-box {
@@ -50,6 +59,21 @@ header {
     vertical-align: top;
     background-color: yellow;
     width: 200px;
+}
+
+ul{
+    padding-left:5px;
+}
+li{
+    padding-left: 5px;
+    min-height: 15px;
+    margin: 5px;
+    border:1px solid green;
+    background-color: red;
+}
+
+.menu-category li{
+   
 }
 
 .main-box .content {
@@ -78,11 +102,12 @@ footer {
     left: 0;
     color: white;
     text-align: center;
-    background: rgb(55, 55, 148);
+    background-color:#294464;
     padding: 15px;
     margin-left: 200px;
     margin-right: 200px;
 }
 .names {
     margin: 5px;
+    color: #F8A001;
 }

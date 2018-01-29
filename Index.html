@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Book-store</title>
 </head>
 
@@ -16,13 +17,79 @@
         <header>
             <div class="logo-box">
                 <i class="fa fa-book fa-2x logo" aria-hidden="true"></i>
-                <div class="logo-text">Book store</div>
+                <div class="logo-text">Book
+                    <span class="logo-text-store">store</span>
+                </div>
             </div>
         </header>
         <div class="main-box">
             <nav class="nav">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In libero ut aut repellendus nemo facilis autem
-                    officiis quia, molestias at qui, error ratione dolores soluta tempora magnam porro dolor minima.</p>
+                <ul>
+                    <li>
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        home
+                    </li>
+                    <li class = "menu-category" id="menu-category-link">
+                        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        Category
+                        <ul>
+                            <li>
+                                <i class="fa fa-angle-right fa" aria-hidden="true"></i>
+                                javasciprt
+                                <ul>
+                                    <li>
+                                        <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+                                        book1
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+                                        book2
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+                                        book3
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                C#
+                                <ul>
+                                    <li>
+                                        <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+                                        book1
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+                                        book2
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+                                        book3
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                java
+                                <ul>
+                                    <li>
+                                        <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+                                        book1
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+                                        book2
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+                                        book3
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </nav>
             <aside class="content">
                 <h1>Javascript for Kids: A Playful Introductionto Programming</h1>
@@ -43,12 +110,14 @@
             </aside>
         </div>
 
-        
+
     </div>
-            <footer>
-                <p class="names">Developed by: Georgi Moskov, Valentin Anchev and Angel Alexov</p>
-                <p>All rights reserved!</p>
-            </footer>
+    <footer>
+        Developed by:
+        <p class="names">Georgi Moskov, Valentin Anchev and Angel Alexov</p>
+        <p>All rights reserved!</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
