@@ -57,8 +57,24 @@ header {
 .main-box .nav {
     display: inline-block;
     vertical-align: top;
-    background-color: yellow;
+    background-color: #172b3f;
     width: 200px;
+    color:#fff;
+}
+
+.main-box .nav .nav-home{
+    font-weight: 200;
+    text-align: center;
+    padding: 7px;
+}
+.nav-category{
+    font-weight: 200;
+    text-align: center;
+    padding: 7px;
+}
+
+.menu_li{
+    
 }
 
 ul{
@@ -70,6 +86,7 @@ li{
     margin: 5px;
     border:1px solid green;
     background-color: red;
+    cursor: pointer;
 }
 
 .menu-category li{
