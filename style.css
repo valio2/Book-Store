@@ -97,7 +97,6 @@ li{
 
 .main-box .content {
     display: inline-block;
-    
     width: calc(100% - 205px);
     text-align: center;
 }
@@ -105,13 +104,17 @@ li{
 .author {
     font-style: italic;
 }
-
+p.description{
+    display: inline-block;
+    width: calc(100% - 250px);
+}
 .book-pic {
     width: 200px;
     height: 250px;
     display: inline-block;
     margin-top: 15px;
     margin-bottom: 15px;
+    vertical-align: top;
 }
 
 footer {
