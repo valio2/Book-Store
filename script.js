@@ -4,9 +4,12 @@
 
     for (category in categories) {
         var curUl = $('<ul class="category"></ul>');
-        var curP = $('<p class="categ-text"></p>').text(category);
-        curUl.append($('<i class="fa fa-angle-double-right categ-icon" aria-hidden="true"></i>'));
-        curUl.append(curP);
+        var categInnerTextWrapper = $('<div class="categ-in-text-wrapper"></div>');
+        curIcon = $('<i class="fa fa-angle-double-right categ-icon" aria-hidden="true"></i>');
+        categInnerTextWrapper.append(curIcon);
+        var curP = $('<p class="categ-text"></p>');
+        curP.text(category);
+        categInnerTextWrapper.append(curP);
         var spanCurBookCount = $('<span></span>');
 
         var countBooksInCateg = (function retunrsNumberOfBooksInCategory () {
@@ -20,16 +23,16 @@
         })();
 
         spanCurBookCount.text(' (' + countBooksInCateg.toString() + ')');
-
-        curUl.append(spanCurBookCount);
-
+        categInnerTextWrapper.append(spanCurBookCount);
+        curUl.append(categInnerTextWrapper);
         var curLiDiv = $('<div class="liDiv"></div>');
         curLiDiv.css('display', 'none');
 
         for (book in categories[category]) {
             var curTitle = book;
-            var curLi = $('<li></li>').text(curTitle);
-            curLiDiv.append($('<i class="fa fa-book book-icon" aria-hidden="true"></i>'));
+            var curLi = $('<li></li>');
+            curLi.append($('<i class="fa fa-book book-icon" aria-hidden="true"></i>'));
+            curLi.append($('<span class="book-title"></span>').text(curTitle));
             curLiDiv.append(curLi);
         }
         curUl.append(curLiDiv);
@@ -53,27 +56,27 @@
 
 //show and hide categories in left navigation
 
-$(".category").on("click", function (event) {
+$("ul.category").on("click", function (event) {
     var evThis = $(this);
 
-    if (evThis.is('ul')) {
+    if (evThis.is('ul.category')) {
         event.stopPropagation();
         evThis.children('.liDiv').slideToggle(250);
-        evThis.children('.book-icon').toggleClass('fa-angle-double-right');
-        evThis.children('.book-icon').toggleClass('fa-angle-double-down');
+        evThis.children('.categ-in-text-wrapper').children('.categ-icon').toggleClass('fa-angle-double-right');
+        evThis.children('.categ-in-text-wrapper').children('.categ-icon').toggleClass('fa-angle-double-down');
     }
 })
 
 
 //visualize book page
-$(".category div li").on("click", function (event) {
+$(".nav ul.category .liDiv li").on("click", function (event) {
     var evThis = $(this);
-    if (evThis.is('.category div li')) {
+    if (evThis.is('.nav ul.category .liDiv li')) {
         event.stopPropagation();
         $('.content').fadeOut(300, function () {
             $('.content').html('');
-            var category = evThis.parent().siblings('.categ-text').text().trim();
-            var title = evThis.text().trim();
+            var category = evThis.parent().siblings('.categ-in-text-wrapper').children('.categ-text').text().trim();
+            var title = evThis.children('.book-title').text().trim();
             var author = categories[category][title]['author'];
             var year = categories[category][title]['year'];
             var pic = categories[category][title]['pic'];

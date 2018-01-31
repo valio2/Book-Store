@@ -78,15 +78,11 @@ header {
     background-color: #294464;
 }
 
-.main-box .nav ul{
-    padding-left:5px;
-}
-.main-box .nav ul li{
+.main-box .nav ul .categ-in-text-wrapper{
     padding-left: 5px;
-    min-height: 15px;
-    margin: 5px;
     cursor: pointer;
 }
+
 .main-box .nav ul.category{
     /* padding-top: 2px; */
     padding-bottom: 5px;
@@ -94,29 +90,35 @@ header {
     background-color: #294464;
     cursor: default;
 }
-.main-box .nav ul p.categ-text{
+.main-box .nav ul .categ-in-text-wrapper p.categ-text{
     padding-left: 3px;
     display: inline-block;
     font-weight: bold;
 }
 
-.main-box .nav ul i.categ-icon{
+.main-box .nav ul .categ-in-text-wrapper i.categ-icon{
     display: inline-block;
     font-size: 30px !important;
 }
 
 .main-box .nav ul .liDiv li {
     display: inline-block;
-    width: calc(100% - 25px);
-    padding: 5px;
+    padding: 7px;
+    cursor: pointer;
 }
 
-.main-box .nav ul .book-icon {
-    vertical-align: top;
-    margin-top: 10%;
+.main-box .nav ul .liDiv li .book-icon {
+    vertical-align:top;
     display: inline-block;
     font-size: 15px !important;
+    width: 20px;
 }
+
+.main-box .nav ul .liDiv li .book-title{
+    display: inline-block;
+    width:calc(100% - 30px);
+}
+
 
 .main-box .content {
     margin-top: 7px;
