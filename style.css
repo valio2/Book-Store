@@ -32,7 +32,7 @@ header {
     padding-top: 15px;
     padding-bottom: 15px;
     margin-left:20px;
-    cursor: default;
+    cursor: pointer;
 }
 
 .logo {
@@ -67,7 +67,7 @@ header {
     font-weight: 200;
     padding: 7px;
     font-size: 21px;
-    cursor: default;
+    cursor: pointer;
 }
 .main-box .nav .nav-home .home-icon{
     font-size: 22px;
