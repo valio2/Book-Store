@@ -88,6 +88,9 @@ header {
     cursor: pointer;
 }
 .main-box .nav ul.category{
+    /* padding-top: 2px; */
+    padding-bottom: 5px;
+    margin-bottom: 2px;
     background-color: #294464;
     cursor: default;
 }
@@ -102,8 +105,17 @@ header {
     font-size: 30px !important;
 }
 
-.liDiv li {
+.main-box .nav ul .liDiv li {
+    display: inline-block;
+    width: calc(100% - 25px);
     padding: 5px;
+}
+
+.main-box .nav ul .book-icon {
+    vertical-align: top;
+    margin-top: 10%;
+    display: inline-block;
+    font-size: 15px !important;
 }
 
 .main-box .content {
@@ -115,16 +127,23 @@ header {
 
 .main-box .content p.author {
     font-style: italic;
+    margin-bottom: 15px;
 }
-.main-box .content p.description{
+.main-box .content div{
     display: inline-block;
-    width: calc(100% - 250px);
+    width: calc(100% - 300px);
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 10px;
+    text-align: left;
+}
+.main-box .content div p {
+    margin-bottom: 15px;
 }
 .main-box .content img.book-pic {
     width: 200px;
     height: 250px;
     display: inline-block;
-    margin-top: 15px;
     margin-bottom: 15px;
     vertical-align: top;
 }

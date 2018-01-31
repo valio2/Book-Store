@@ -71,9 +71,11 @@ $(".category div li").on("click", function (event) {
             var innerHTML = `<h1>${title}</h1>
                 <p class="author">${author}</p>
                 <img src="${pic}" class="book-pic">
+                <div>
                 <p>Year: ${year}</p>
-                <p>${pages}</p>
-                <p>${description}</p>`
+                <p>Pages: ${pages}</p>
+                <p>Description: ${description}</p>
+                </div>`
 
             $('.content').html(innerHTML).fadeIn(800);
         })
