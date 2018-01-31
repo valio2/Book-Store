@@ -65,12 +65,12 @@ function buildHomePage() {
 };
 buildHomePage();
 
-// make the home button to build the home page
+// make the home button and logo-box to build the home page
 $(".nav-home, .logo-box").on("click", function () {
     $('.content').fadeOut(300, function() {
         $('.content').html('');
         buildHomePage();
-        $('.content').fadeIn(1000, buildHomePage);
+        $('.content').fadeIn(1000);
     })
 });
 
