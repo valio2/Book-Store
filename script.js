@@ -39,6 +39,18 @@
     $('.nav').append(navTempDiv);
 })();
 
+// build home page
+
+
+
+
+
+
+
+
+
+
+
 //show and hide categories in left navigation
 
 $(".category").on("click", function (event) {

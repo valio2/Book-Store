@@ -119,6 +119,7 @@ header {
 }
 
 .main-box .content {
+    margin-top: 7px;
     display: inline-block;
     width: calc(100% - 205px);
     text-align: center;
@@ -127,19 +128,22 @@ header {
 
 .main-box .content p.author {
     font-style: italic;
+    margin-top: 5px;
     margin-bottom: 15px;
 }
 .main-box .content div{
     display: inline-block;
     width: calc(100% - 300px);
-    margin-top: 30px;
+    margin-top: 15px;
     margin-left: 20px;
     margin-right: 10px;
     text-align: left;
 }
+
 .main-box .content div p {
     margin-bottom: 15px;
 }
+
 .main-box .content img.book-pic {
     width: 200px;
     height: 250px;
