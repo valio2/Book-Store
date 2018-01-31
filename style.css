@@ -60,6 +60,7 @@ header {
     background-color: #172b3f;
     width: 200px;
     color:#fff;
+    margin-bottom: 20px;
 }
 
 .main-box .nav .nav-home{
@@ -100,6 +101,7 @@ header {
     display: inline-block;
     width: calc(100% - 205px);
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .main-box .content p.author {
@@ -119,7 +121,7 @@ header {
 }
 
 footer {
-    width: calc(100% - 400px);
+    width:calc(100% - 400px);
     position: absolute;
     bottom: 0;
     left: 0;
@@ -134,3 +136,4 @@ footer p.names {
     margin: 5px;
     color: #F8A001;
 }
+
