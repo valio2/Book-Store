@@ -7,6 +7,21 @@
         var curP = $('<p class="categ-text"></p>').text(category);
         curUl.append($('<i class="fa fa-angle-double-right book-icon" aria-hidden="true"></i>'));
         curUl.append(curP);
+        var spanCurBookCount = $('<span></span>');
+
+        var countBooksInCateg = (function retunrsNumberOfBooksInCategory () {
+            var countBooks = 0;
+            for (book in categories[category]) {
+                if (categories[category].hasOwnProperty(book)) {
+                    countBooks++;
+                }
+            }
+            return countBooks;
+        })();
+
+        spanCurBookCount.text(' (' + countBooksInCateg.toString() + ')');
+
+        curUl.append(spanCurBookCount);
 
         var curLiDiv = $('<div class="liDiv"></div>');
         curLiDiv.css('display', 'none');
