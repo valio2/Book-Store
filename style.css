@@ -32,7 +32,7 @@ header {
     padding-top: 15px;
     padding-bottom: 15px;
     margin-left:20px;
-
+    cursor: default;
 }
 
 .logo {
@@ -67,6 +67,7 @@ header {
     font-weight: 200;
     padding: 7px;
     font-size: 21px;
+    cursor: default;
 }
 .main-box .nav .nav-home .home-icon{
     font-size: 22px;
@@ -150,6 +151,28 @@ header {
     display: inline-block;
     margin-bottom: 15px;
     vertical-align: top;
+}
+
+.main-box .content .thumbnails-category{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.main-box .content .thumbnails-category div{
+    width: 150px;
+    display: inline-block;
+}
+
+.main-box .content .thumbnails-category div img{
+    width: 100px;
+    height: 130px;
+    margin-bottom: 3px;
+}
+
+.main-box .content .thumbnails-category div h6 {
+    width: 100px;
 }
 
 footer {
