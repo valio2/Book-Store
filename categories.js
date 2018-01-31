@@ -1,5 +1,5 @@
 var categories = {
-    javascript: {
+    Javascript: {
         "JavaScript for Kids: A Playful Introduction to Programming": {
             title: "JavaScript for Kids: A Playful Introduction to Programming",
             author: "Nick Morgan",
@@ -25,7 +25,7 @@ var categories = {
             description: "More than ever, the web is a universal platform for all types of applications, and JavaScript is the language of the web. If you're serious about web development, it's not enough to be a decent JavaScript coder. You need to be ninja-stealthy, efficient, and ready for anything. This book shows you how.",
         },
     },
-    csharp: {
+    Csharp: {
         "Pro C# 5.0 and the .NET 4.5 Framework": {
             author: "Andrew Troelsen",
             year: 2012,
@@ -48,7 +48,7 @@ var categories = {
             description: "Your process may be agile, but are you building agility directly into the code base? This book teaches .NET programmers how to give code the flexibility to adapt to changing requirements and customer demands by applying cutting-edge techniques, including SOLID principles, design patterns, and other industry best practices.",
         },
     },
-    java: {
+    Java: {
         "Head First Java, 2nd Edition": {
             author: "Kathy Sierra",
             year: 2005,
