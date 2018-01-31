@@ -5,7 +5,7 @@
     for (category in categories) {
         var curUl = $('<ul class="category"></ul>');
         var curP = $('<p class="categ-text"></p>').text(category);
-        curUl.append($('<i class="fa fa-angle-double-right book-icon" aria-hidden="true"></i>'));
+        curUl.append($('<i class="fa fa-angle-double-right categ-icon" aria-hidden="true"></i>'));
         curUl.append(curP);
         var spanCurBookCount = $('<span></span>');
 
@@ -29,6 +29,7 @@
         for (book in categories[category]) {
             var curTitle = book;
             var curLi = $('<li></li>').text(curTitle);
+            curLiDiv.append($('<i class="fa fa-book book-icon" aria-hidden="true"></i>'));
             curLiDiv.append(curLi);
         }
         curUl.append(curLiDiv);

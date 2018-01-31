@@ -85,20 +85,25 @@ header {
     padding-left: 5px;
     min-height: 15px;
     margin: 5px;
-    border:1px solid green;
-    background-color: red;
     cursor: pointer;
 }
 .main-box .nav ul.category{
-
+    background-color: #294464;
+    cursor: default;
 }
 .main-box .nav ul p.categ-text{
+    padding-left: 3px;
     display: inline-block;
+    font-weight: bold;
 }
 
-.main-box .nav ul i.book-icon{
+.main-box .nav ul i.categ-icon{
     display: inline-block;
     font-size: 30px !important;
+}
+
+.liDiv li {
+    padding: 5px;
 }
 
 .main-box .content {
