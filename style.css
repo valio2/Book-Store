@@ -65,13 +65,13 @@ header {
 
 .main-box .nav .nav-home{
     font-weight: 200;
-    text-align: center;
     padding: 7px;
 }
 .main-box .nav .nav-category{
     font-weight: 200;
     text-align: center;
     padding: 7px;
+    background-color: #294464;
 }
 
 .main-box .nav ul{
