@@ -71,4 +71,50 @@ var categories = {
             description: "Coding and testing are often considered separate areas of expertise. In this comprehensive guide, author and Java expert Scott Oaks takes the approach that anyone who works with Java should be equally adept at understanding how code behaves in the JVM, as well as the tunings likely to help its performance.",
         },
     },
+    java1: {
+        "Head First Java, 2nd Edition": {
+            author: "Kathy Sierra",
+            year: 2005,
+            pic: "https://images-na.ssl-images-amazon.com/images/I/51Gsycdh-TL._SX430_BO1,204,203,200_.jpg",
+            pages: 688,
+            description: "Learning a complex new language is no easy task especially when it s an object-oriented computer programming language like Java. You might think the problem is your brain. It seems to have a mind of its own, a mind that doesn't always want to take in the dry, technical stuff you're forced to study.",
+        },
+        "Java: A Beginner's Guide, Sixth Edition: A Beginner's Guide, Sixth Edition": {
+            author: "Herbert Schildt",
+            year: 2014,
+            pic: "https://images.gr-assets.com/books/1397424275l/17349359.jpg",
+            pages: 728,
+            description: "Essential Java Programming Skills--Made Easy! Fully updated for Java Platform, Standard Edition 8 (Java SE 8), 'Java: A Beginner's Guide,' Sixth Edition gets you started programming in Java right away. Bestselling programming author Herb Schildt begins with the basics, such as how to create, compile, and run a Java program. He then moves on to the keywords, syntax, and constructs that form the core of the Java language. This Oracle Press resource also covers some of Java's more advanced features, including multithreaded programming, generics, and Swing. Of course, new Java SE 8 features such as lambda expressions and default interface methods are described. An introduction to JavaFX, Java's newest GUI, concludes this step-by-step tutorial.",
+        },
+        "Java Performance: The Definitive Guide": {
+            author: "Scott Oaks",
+            year: 2014,
+            pic: "https://covers.oreillystatic.com/images/0636920028499/cat.gif",
+            pages: 426,
+            description: "Coding and testing are often considered separate areas of expertise. In this comprehensive guide, author and Java expert Scott Oaks takes the approach that anyone who works with Java should be equally adept at understanding how code behaves in the JVM, as well as the tunings likely to help its performance.",
+        },
+    },
+    java2: {
+        "Head First Java, 2nd Edition": {
+            author: "Kathy Sierra",
+            year: 2005,
+            pic: "https://images-na.ssl-images-amazon.com/images/I/51Gsycdh-TL._SX430_BO1,204,203,200_.jpg",
+            pages: 688,
+            description: "Learning a complex new language is no easy task especially when it s an object-oriented computer programming language like Java. You might think the problem is your brain. It seems to have a mind of its own, a mind that doesn't always want to take in the dry, technical stuff you're forced to study.",
+        },
+        "Java: A Beginner's Guide, Sixth Edition: A Beginner's Guide, Sixth Edition": {
+            author: "Herbert Schildt",
+            year: 2014,
+            pic: "https://images.gr-assets.com/books/1397424275l/17349359.jpg",
+            pages: 728,
+            description: "Essential Java Programming Skills--Made Easy! Fully updated for Java Platform, Standard Edition 8 (Java SE 8), 'Java: A Beginner's Guide,' Sixth Edition gets you started programming in Java right away. Bestselling programming author Herb Schildt begins with the basics, such as how to create, compile, and run a Java program. He then moves on to the keywords, syntax, and constructs that form the core of the Java language. This Oracle Press resource also covers some of Java's more advanced features, including multithreaded programming, generics, and Swing. Of course, new Java SE 8 features such as lambda expressions and default interface methods are described. An introduction to JavaFX, Java's newest GUI, concludes this step-by-step tutorial.",
+        },
+        "Java Performance: The Definitive Guide": {
+            author: "Scott Oaks",
+            year: 2014,
+            pic: "https://covers.oreillystatic.com/images/0636920028499/cat.gif",
+            pages: 426,
+            description: "Coding and testing are often considered separate areas of expertise. In this comprehensive guide, author and Java expert Scott Oaks takes the approach that anyone who works with Java should be equally adept at understanding how code behaves in the JVM, as well as the tunings likely to help its performance.",
+        },
+    },
 }
