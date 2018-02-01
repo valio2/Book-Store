@@ -1,10 +1,24 @@
-const visualize = (function () {
+var visualize = (function () {
     function navBar() {
-        var navTempDiv = $('<div class="inner-wrapper-nav"></div>');
+        $('.nav').html('');
+        var homeAndCategoryNavBars = '<div>' +
+                    '<h2 class="nav-home">' +
+                        '<i class="fa fa-home home-icon" aria-hidden="true"></i>' +
+                        'Home' +
+                    '</h2>' +
+                    '<h2 class="nav-category">' +
+                        'Categories' +
+                    '</h2>' +
+                '</div>';
+
+        var navTempDiv = $('<div></div>')
+            .addClass("inner-wrapper-nav");
 
         for (category in categories) {
-            var curUl = $('<ul class="category"></ul>');
-            var categInnerTextWrapper = $('<div class="categ-in-text-wrapper"></div>');
+            var curUl = $('<ul></ul>')
+                .addClass("category");
+            var categInnerTextWrapper = $('<div></div>')
+                .addClass("categ-in-text-wrapper");
             curIcon = $('<i class="fa fa-angle-double-right categ-icon" aria-hidden="true"></i>');
             categInnerTextWrapper.append(curIcon);
             var curP = $('<p class="categ-text"></p>');
@@ -39,7 +53,7 @@ const visualize = (function () {
             navTempDiv.append(curUl);
 
         }
-        $('.nav').append(navTempDiv);
+        $('.nav').append(homeAndCategoryNavBars, navTempDiv);
     };
 
     function homePage() {
@@ -83,9 +97,101 @@ const visualize = (function () {
         console.log($('.content').css('display'));
     }
 
+    function loginPage() {
+        var innerHTML = `<p>Username: </p>
+                    <input id="username_input" type="text">
+                    <p>Password: </p>
+                    <input id="password_input" type="password">
+                    <br>
+                    <button class="login_button">Log in</button>`;
+
+        $('.content').html(innerHTML).fadeIn(500);
+    }
+
+    function addBookPage() {
+        var innerHTML = `<p>Category: </p>
+                    <input id="category_input" type="text">
+                    <p>Book Name: </p>
+                    <input id="book_name_input" type="text">
+                    <p>Author: </p>
+                    <input id="author_input" type="text">
+                    <p>Year: </p>
+                    <input id="year_input" type="text">
+                    <p>Picture: </p>
+                    <input id="picture_input" type="text" placeholder="Valid URL...">
+                    <p>Pages: </p>
+                    <input id="pages_input" type="text">
+                    <p>Description: </p>
+                    <textarea id="description_input" type="text"></textarea>
+                    <br>
+                    <button class="add_button">Add Book</button>`;
+
+        $('.content').html(innerHTML).fadeIn(500);
+    }
+
     return {
         navBar: navBar,
         homePage: homePage,
         bookPage: bookPage,
+        loginPage: loginPage,
+        addBookPage: addBookPage,
+    }
+})();
+
+var database = (function () {
+    function addBook () {
+        var category = $('#category_input').val();
+        var book = $('#book_name_input').val();
+        var author = $('#author_input').val();
+        var year = $('#year_input').val();
+        var pic = $('#pic_input').val();
+        var pages = $('#pages_input').val();
+        var description = $('#description_input').val();
+
+        //validating entry details
+        if (category.length < 1) {
+            alert("Category must have at least 1 symbol.");
+            return;
+        }
+        if (book.length < 1) {
+            alert("Book name must have at least 1 symbol.");
+            return;
+        }
+        if (author.length < 1) {
+            alert("Author must have at least 1 symbol.");
+            return;
+        }
+        if (year.length !== 4 || isNaN(Number(year))) {
+            alert("Year must be contain only numbers and have 4 digits");
+            return;
+        }
+        if (pages.length < 1 || isNaN(Number(pages))) {
+            alert("Pages must be a valid number");
+            return;
+        }
+        if (description.length < 15) {
+            alert("Description must have at least 15 characters");
+            return;
+        }
+        var bookObj = {
+            'author': author,
+            'year': year,
+            'pic': pic,
+            'pages': pages,
+            'description': description,
+        };
+        if (!categories[category]) {
+            categories[category] = {};
+        }
+        categories[category][book] = bookObj;
+    }
+
+    // function removeBook () {
+
+    // }
+
+    return {
+        addBook: addBook,
+        // removeBook: removeBook,
     }
 })();

@@ -50,6 +50,14 @@ header {
     color: #F8A001;
 }
 
+.login_redirect{
+    cursor: pointer;
+}
+
+.add_book_redirect {
+    cursor: pointer;
+}
+
 .main-box {
     margin-bottom: 30px;
 }
@@ -190,6 +198,12 @@ header {
 
 .main-box .content .thumbnails-category div h6 {
     width: 100px;
+}
+
+.main-box .content textarea {
+    resize: none;
+    width: 250px;
+    height: 100px;
 }
 
 footer {

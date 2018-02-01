@@ -2,9 +2,8 @@
 visualize.navBar();
 visualize.homePage();
 
-
 // make the home button and logo-box to build the home page
-$(".nav-home, .logo-box").on("click", function () {
+$(".logo-box").on("click", function () {
     $('.content').fadeOut(300, function () {
         $('.content').html('');
         visualize.homePage();
@@ -12,8 +11,17 @@ $(".nav-home, .logo-box").on("click", function () {
     })
 });
 
+$(".nav").on("click", ".nav-home", function () {
+    $('.content').fadeOut(300, function () {
+        $('.content').html('');
+        visualize.homePage();
+        $('.content').fadeIn(1000);
+    })
+});
+
+
 //show and hide categories in left navigation
-$("ul.category").on("click", function (event) {
+$(".nav").on("click", "ul.category", function (event) {
     var evThis = $(this);
 
     if (evThis.is('ul.category')) {
@@ -25,7 +33,7 @@ $("ul.category").on("click", function (event) {
 })
 
 //visualize book page
-$(".nav ul.category .liDiv li").on("click", function (event) {
+$(".nav").on("click", "ul.category .liDiv li", function (event) {
     var evThis = $(this);
     if (evThis.is('.nav ul.category .liDiv li')) {
         event.stopPropagation();
@@ -36,4 +44,44 @@ $(".nav ul.category .liDiv li").on("click", function (event) {
             visualize.bookPage(evThis);
         });
     }
+})
+
+//visualize login page
+$('.login_redirect').on('click', function () {
+    $('.content').fadeOut(300, function () {
+        visualize.loginPage();
+    })
+})
+
+//visualize add book page
+$('.add_book_redirect').on('click', function () {
+    $('.content').fadeOut(300, function () {
+        visualize.addBookPage();
+    })
+})
+
+// login button
+$('.content').on('click', '.login_button', function () {
+    var username = $('#username_input').val();
+    var password = $('#password_input').val();
+    
+    if (users[username]) {
+        if (users[username] === password) {
+            alert('success');
+            $('#username_input').val('');
+            $('#password_input').val('');
+        } else {
+            $('.content').append('<p style="color:red">Wrong username or password</p>');
+        }
+    } else {
+        $('.content').append('<p style="color:red">Wrong username or password</p>');
+    }
+    
+})
+
+
+//add book
+$('.content').on('click', '.add_button', function () {
+    database.addBook();
+    visualize.navBar();
 })

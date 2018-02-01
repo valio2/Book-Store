@@ -1,0 +1,3 @@
+var users = {
+    'admin': 'admin',
+}

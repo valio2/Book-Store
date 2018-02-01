@@ -1,7 +1,6 @@
 var categories = {
     Javascript: {
         "JavaScript for Kids: A Playful Introduction to Programming": {
-            title: "JavaScript for Kids: A Playful Introduction to Programming",
             author: "Nick Morgan",
             year: 2014,
             pic: "https://images-na.ssl-images-amazon.com/images/I/51YfamJFhkL._SX376_BO1,204,203,200_.jpg",
@@ -9,7 +8,6 @@ var categories = {
             description: "JavaScript is the programming language of the Internet, the secret sauce that makes the Web awesome, your favorite sites interactive, and online games fun!"
         },
         "JavaScript: The Good Parts": {
-            title: "JavaScript: The Good Parts",
             author: "Douglas Crockford",
             year: 2008,
             pic: "https://covers.oreillystatic.com/images/9780596517748/lrg.jpg",
@@ -17,7 +15,6 @@ var categories = {
             description: "Most programming languages contain good and bad parts, but JavaScript has more than its share of the bad, having been developed and released in a hurry before it could be refined. This authoritative book scrapes away these bad features to reveal a subset of JavaScript that's more reliable, readable, and maintainable than the language as a whole—a subset you can use to create truly extensible and efficient code.",
         },
         "Secrets of the JavaScript Ninja, Second Edition": {
-            title: "Secrets of the JavaScript Ninja, Second Edition",
             author: "John Resig, Bear Bibeault, and Josip Maras",
             year: 2016,
             pic: "https://images.manning.com/720/960/resize/book/b/72b6dbb-4eb6-4bbd-9078-b47f0393a1bb/Resig-JSN-2ed-HI.png",
