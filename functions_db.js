@@ -21,7 +21,7 @@ var visualize = (function () {
                 .addClass("categ-in-text-wrapper");
             curIcon = $('<i class="fa fa-angle-double-right categ-icon" aria-hidden="true"></i>');
             categInnerTextWrapper.append(curIcon);
-            var curP = $('<p class="categ-text"></p>');
+            var curP = $('<p></p>').addClass("categ-text");
             curP.text(category);
             categInnerTextWrapper.append(curP);
             var spanCurBookCount = $('<span></span>');
@@ -39,7 +39,8 @@ var visualize = (function () {
             spanCurBookCount.text(' (' + countBooksInCateg.toString() + ')');
             categInnerTextWrapper.append(spanCurBookCount);
             curUl.append(categInnerTextWrapper);
-            var curLiDiv = $('<div class="liDiv"></div>');
+            var curLiDiv = $('<div></div>')
+                .addClass("liDiv");
             curLiDiv.css('display', 'none');
 
             for (book in categories[category]) {
@@ -57,14 +58,17 @@ var visualize = (function () {
     };
 
     function homePage() {
-        var homePageContent = $('<div class="home-page-wrapper"></div>');
+        var homePageContent = $('<div></div>')
+            .addClass("home-page-wrapper");
         for (category in categories) {
-            var curThumbnailDiv = $('<div class="thumbnails-category"></div>');
+            var curThumbnailDiv = $('<div></div>')
+                .addClass("thumbnails-category");
             curThumbnailDiv.append($(`<h2></h2>`).text(category));
 
             for (book in categories[category]) {
                 var curBookDiv = $('<div></div>');
-                curBookDiv.append($(`<img src="${categories[category][book]['pic']}" class="book-pic">`));
+                curBookDiv.append($(`<img src="${categories[category][book]['pic']}">`)
+                    .addClass("book-pic"));
                 curBookDiv.append($(`<h6>${book}</h6>`));
 
                 curThumbnailDiv.append(curBookDiv);
@@ -103,7 +107,7 @@ var visualize = (function () {
                     <p>Password: </p>
                     <input id="password_input" type="password">
                     <br>
-                    <button class="login_button">Log in</button>`;
+                    <button id="login_button">Log in</button>`;
 
         $('.content').html(innerHTML).fadeIn(500);
     }

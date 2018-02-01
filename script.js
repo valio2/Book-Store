@@ -1,3 +1,6 @@
+// create a variable to check if the user is logged
+var loggedIn = 'not logged-in';
+
 // to load when initially entering the site
 visualize.navBar();
 visualize.homePage();
@@ -49,36 +52,55 @@ $(".nav").on("click", "ul.category .liDiv li", function (event) {
 //visualize login page
 $('.login_redirect').on('click', function () {
     $('.content').fadeOut(300, function () {
+        if (loggedIn === 'logged-in') {
+            loggedIn = 'not logged-in';
+            $('.header-buttons .login_redirect').html('Login/Register');
+        }
         visualize.loginPage();
     })
 })
 
 //visualize add book page
 $('.add_book_redirect').on('click', function () {
-    $('.content').fadeOut(300, function () {
-        visualize.addBookPage();
-    })
+    if (loggedIn === 'logged-in') {
+        $('.content').fadeOut(300, function () {
+            visualize.addBookPage();
+        })
+    } else {
+        $('.content').fadeOut(300, function () {
+            visualize.loginPage();
+            $('.content').append('<h2 style="color:red">You need to log in before you can add books.</h2>')
+        })
+    }
 })
 
 // login button
-$('.content').on('click', '.login_button', function () {
+
+$('.content').on('click', '#login_button', function () {
     var username = $('#username_input').val();
     var password = $('#password_input').val();
-    
+
     if (users[username]) {
         if (users[username] === password) {
-            alert('success');
             $('#username_input').val('');
             $('#password_input').val('');
+            loggedIn = 'logged-in';
+            $('.header-buttons .login_redirect').html('Log out');
+            $(".logo-box").click();
         } else {
             $('.content').append('<p style="color:red">Wrong username or password</p>');
         }
     } else {
         $('.content').append('<p style="color:red">Wrong username or password</p>');
     }
-    
 })
 
+$("#username_input, #password_input").keypress(function (event) {
+    if (event.which == 13) {
+        $("#login_button").click();
+        event.preventDefault();
+    }
+})
 
 //add book
 $('.content').on('click', '.add_button', function () {

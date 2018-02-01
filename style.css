@@ -23,6 +23,8 @@ body {
 }
 
 header {
+    display: inline-block;
+    width: 100%;
     background-color:#294464;
     color: white;
 }
@@ -50,12 +52,22 @@ header {
     color: #F8A001;
 }
 
+.header-buttons {
+    float: right;
+    padding-top: 12px;
+    padding-bottom: 15px;
+    margin-right: 20px;
+    
+}
 .login_redirect{
     cursor: pointer;
+    padding-bottom: 3px;
 }
 
 .add_book_redirect {
     cursor: pointer;
+    padding-top: 3px;
+    
 }
 
 .main-box {
