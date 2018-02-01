@@ -108,6 +108,21 @@ header {
     cursor: pointer;
 }
 
+.main-box .nav ul .liDiv li:hover{
+    color: #F8A001;
+}
+
+.main-box .nav ul .liDiv li.selected{
+    background-color: #F8A001;
+    font-weight: bold;
+}
+
+.main-box .nav ul .liDiv li.selected:hover{
+    color:white;
+}
+
+
+
 .main-box .nav ul .liDiv li .book-icon {
     vertical-align:top;
     display: inline-block;

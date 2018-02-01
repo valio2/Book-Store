@@ -94,6 +94,9 @@ $(".nav ul.category .liDiv li").on("click", function (event) {
     var evThis = $(this);
     if (evThis.is('.nav ul.category .liDiv li')) {
         event.stopPropagation();
+        $('.main-box .nav ul .liDiv li.selected').removeClass('selected');
+        evThis.addClass('selected');
+
         $('.content').fadeOut(300, function () {
             $('.content').html('');
             var category = evThis.parent().siblings('.categ-in-text-wrapper').children('.categ-text').text().trim();
