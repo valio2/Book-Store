@@ -195,7 +195,7 @@ var database = (function () {
     // }
 
     return {
-        addBook: addBook,
-        // removeBook: removeBook,
+        addBook,
+        // removeBook,
     }
 })();
