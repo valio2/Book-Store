@@ -71,6 +71,11 @@ header {
     padding-right: 2px;
 }
 
+.logout_redirect{
+    cursor: pointer;
+    padding-bottom: 3px;
+}
+
 .register_redirect {
     display: inline-block;
     cursor: pointer;
@@ -139,6 +144,7 @@ header {
     display: inline-block;
     padding: 7px;
     cursor: pointer;
+    width: 100%;
 }
 
 .main-box .nav ul .liDiv li:hover{
@@ -247,4 +253,3 @@ footer p.names {
     margin: 5px;
     color: #F8A001;
 }
-
