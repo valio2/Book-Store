@@ -14,9 +14,17 @@ var listeners = (function () {
             $('.content').fadeOut(300, function () {
                 if (loggedIn === 'logged-in') {
                     loggedIn = 'not logged-in';
-                    $('.header-buttons .login_redirect').html('Login/Register');
+                    $('.header-buttons .login_redirect').html('Login');
                 }
                 visualize.loginPage();
+            })
+        })
+    }
+
+    function header_register_button() {
+        $('.register_redirect').on('click', function () {
+            $('.content').fadeOut(300, function () {
+                visualize.registerPage();
             })
         })
     }
@@ -46,7 +54,7 @@ var listeners = (function () {
         });
     }
 
-    function navCategories () {
+    function navCategories() {
         $(".nav").on("click", "ul.category", function (event) {
             var evThis = $(this);
 
@@ -59,7 +67,7 @@ var listeners = (function () {
         })
     }
 
-    function navBook () {
+    function navBook() {
         $(".nav").on("click", "ul.category .liDiv li", function (event) {
             var evThis = $(this);
             if (evThis.is('.nav ul.category .liDiv li')) {
@@ -74,7 +82,7 @@ var listeners = (function () {
         })
     }
 
-    function content_login_button () {
+    function content_login_button() {
         $('.content').on('click', '#login_button', function () {
             var username = $('#username_input').val();
             var password = $('#password_input').val();
@@ -102,6 +110,32 @@ var listeners = (function () {
         })
     }
 
+    function content_register_button() {
+        $('.content').on('click', '#register_button', function () {
+            var username = $('#username_input').val();
+            var password = $('#password_input').val();
+
+            if (users[username]) {
+                alert("Username already exists.");
+            } else {
+                users[username] = password;
+                // $('#username_input').val('');
+                // $('#username_input').val('');
+                // $('.content').append("<p style='color:red'>You have successfully registered</p>")
+                loggedIn = 'logged-in';
+                $('.header-buttons .login_redirect').html('Log out');
+                $(".logo-box").click();
+            }
+        })
+
+        $('.content').keypress("#username_input, #password_input", function (event) {
+            if (event.which == 13) {
+                $("#register_button").click();
+                event.preventDefault();
+            }
+        })
+    }
+
     function content_addBook_button() {
         $('.content').on('click', '.add_button', function () {
             database.addBook();
@@ -112,11 +146,13 @@ var listeners = (function () {
     return {
         header_logoBox,
         header_login_button,
+        header_register_button,
         header_addBook_button,
         homeButton,
         navCategories,
         navBook,
         content_login_button,
+        content_register_button,
         content_addBook_button,
     }
 })();

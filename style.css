@@ -57,11 +57,24 @@ header {
     padding-top: 12px;
     padding-bottom: 15px;
     margin-right: 20px;
-    
+    text-align: center;
 }
-.login_redirect{
-    cursor: pointer;
+
+.login-register-buttons {
+    display: inline-block;
     padding-bottom: 3px;
+}
+
+.login_redirect{
+    display: inline-block;
+    cursor: pointer;
+    padding-right: 2px;
+}
+
+.register_redirect {
+    display: inline-block;
+    cursor: pointer;
+    padding-left: 2px;
 }
 
 .add_book_redirect {

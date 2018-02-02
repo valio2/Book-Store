@@ -112,6 +112,17 @@ var visualize = (function () {
         $('.content').html(innerHTML).fadeIn(500);
     }
 
+    function registerPage() {
+        var innerHTML = `<p>Username: </p>
+                    <input id="username_input" type="text">
+                    <p>Password: </p>
+                    <input id="password_input" type="password">
+                    <br>
+                    <button id="register_button">Register</button>`;
+
+        $('.content').html(innerHTML).fadeIn(500);
+    }
+
     function addBookPage() {
         var innerHTML = `<p>Category: </p>
                     <input id="category_input" type="text">
@@ -134,11 +145,12 @@ var visualize = (function () {
     }
 
     return {
-        navBar: navBar,
-        homePage: homePage,
-        bookPage: bookPage,
-        loginPage: loginPage,
-        addBookPage: addBookPage,
+        navBar,
+        homePage,
+        bookPage,
+        loginPage,
+        registerPage,
+        addBookPage,
     }
 })();
 
