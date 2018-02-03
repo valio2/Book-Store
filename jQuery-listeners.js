@@ -63,8 +63,8 @@ var listeners = (function () {
 
     function homeButton() {
         $(".nav").on("click", ".nav-home", function () {
-        closeCurrentActiveCategory();
-        $('.main-box .nav ul .liDiv li.selected').removeClass('selected');
+            closeCurrentActiveCategory();
+            $('.main-box .nav ul .liDiv li.selected').removeClass('selected');
             $('.content').fadeOut(300, function () {
                 $('.content').html('');
                 visualize.homePage();
@@ -89,22 +89,18 @@ var listeners = (function () {
             if (evThis.is('ul.category')) {
                 event.stopPropagation();
 
-                (function closeCurrentActiveCategory() {
-                    $(".nav .open-category .categ-in-text-wrapper").children('.categ-icon').toggleClass('fa-angle-double-right');
-                    $(".nav .open-category .categ-in-text-wrapper").children('.categ-icon').toggleClass('fa-angle-double-down');
-                    $(".nav .open-category")
-                        .toggleClass('open-category')
-                        .children('.liDiv')
-                        .slideToggle(250);
-                })();
-                closeCurrentActiveCategory();
+                if (!evThis.hasClass('open-category')) {
+                    closeCurrentActiveCategory();
 
-                (function openClickedCategory() {
-                    evThis.toggleClass('open-category');
-                    evThis.children('.liDiv').slideToggle(250);
-                    evThis.children('.categ-in-text-wrapper').children('.categ-icon').toggleClass('fa-angle-double-right');
-                    evThis.children('.categ-in-text-wrapper').children('.categ-icon').toggleClass('fa-angle-double-down');
-                })();
+                    (function openClickedCategory() {
+                        evThis.toggleClass('open-category');
+                        evThis.children('.liDiv').slideToggle(250);
+                        evThis.children('.categ-in-text-wrapper').children('.categ-icon').toggleClass('fa-angle-double-right');
+                        evThis.children('.categ-in-text-wrapper').children('.categ-icon').toggleClass('fa-angle-double-down');
+                    })();
+                } else {
+                    closeCurrentActiveCategory();
+                }
             }
         })
     }
