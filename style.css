@@ -52,6 +52,17 @@ header {
     color: #F8A001;
 }
 
+.header-navigation {
+    display: inline-block;
+    margin-left: 28%;
+}
+
+.header-navigation p{
+    display: inline-block;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
 .header-buttons {
     float: right;
     padding-top: 12px;
