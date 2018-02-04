@@ -84,14 +84,17 @@ var visualize = (function () {
         var year = categories[category][title]['year'];
         var pic = categories[category][title]['pic'];
         var pages = categories[category][title]['pages'];
+        var price = categories[category][title]['price'];
         var description = categories[category][title]['description'];
-
+        console.log(typeof price);
+        
         var innerHTML = `<h1>${title}</h1>
                 <p class="author">${author}</p>
                 <img src="${pic}" class="book-pic">
                 <div>
                 <p>Year: ${year}</p>
                 <p>Pages: ${pages}</p>
+                <p>Price: ${Number(price).toFixed(2)} EUR</p>
                 <p>Description: ${description}</p>
                 </div>`
         $('.content').html(innerHTML).fadeIn(1000);
@@ -132,6 +135,8 @@ var visualize = (function () {
                     <input id="picture_input" type="text" placeholder="Valid URL...">
                     <p>Pages: </p>
                     <input id="pages_input" type="text">
+                    <p>Price: </p>
+                    <input id="price_input" type="text">
                     <p>Description: </p>
                     <textarea id="description_input" type="text"></textarea>
                     <br>
@@ -158,6 +163,7 @@ var database = (function () {
         var year = $('#year_input').val();
         var pic = $('#pic_input').val();
         var pages = $('#pages_input').val();
+        var price = $('#price_input').val();
         var description = $('#description_input').val();
 
         //validating entry details
@@ -173,12 +179,16 @@ var database = (function () {
             alert("Author must have at least 1 symbol.");
             return;
         }
-        if (year.length !== 4 || isNaN(Number(year))) {
+        if (year.length !== 4 || isNaN(Number(year)) || year < 0) {
             alert("Year must be contain only numbers and have 4 digits");
             return;
         }
-        if (pages.length < 1 || isNaN(Number(pages))) {
-            alert("Pages must be a valid number");
+        if (pages.length < 1 || isNaN(Number(pages)) || pages < 1) {
+            alert("Pages must be a positive integer");
+            return;
+        }
+        if (price.length < 1 || isNaN(Number(price)) || price < 0) {
+            alert("Price must be a positive integer");
             return;
         }
         if (description.length < 15) {
@@ -191,6 +201,7 @@ var database = (function () {
             'pic': pic,
             'pages': pages,
             'description': description,
+            'price': price,
         };
         if (!categories[category]) {
             categories[category] = {};
