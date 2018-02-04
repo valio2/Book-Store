@@ -2,14 +2,14 @@ var visualize = (function () {
     function navBar() {
         $('.nav').html('');
         var homeAndCategoryNavBars = '<div>' +
-                    '<h2 class="nav-home">' +
-                        '<i class="fa fa-home home-icon" aria-hidden="true"></i>' +
-                        'Home' +
-                    '</h2>' +
-                    '<h2 class="nav-category">' +
-                        'Categories' +
-                    '</h2>' +
-                '</div>';
+            '<h2 class="nav-home">' +
+            '<i class="fa fa-home home-icon" aria-hidden="true"></i>' +
+            'Home' +
+            '</h2>' +
+            '<h2 class="nav-category">' +
+            'Categories' +
+            '</h2>' +
+            '</div>';
 
         var navTempDiv = $('<div></div>')
             .addClass("inner-wrapper-nav");
@@ -78,11 +78,8 @@ var visualize = (function () {
         $('.content').append(homePageContent);
     };
 
-    function bookPage(that) {
-        console.log($('.content').css('display'));
+    function bookPage(category, title) {
         $('.content').html('');
-        var category = that.parent().siblings('.categ-in-text-wrapper').children('.categ-text').text().trim();
-        var title = that.children('.book-title').text().trim();
         var author = categories[category][title]['author'];
         var year = categories[category][title]['year'];
         var pic = categories[category][title]['pic'];
@@ -97,8 +94,7 @@ var visualize = (function () {
                 <p>Pages: ${pages}</p>
                 <p>Description: ${description}</p>
                 </div>`
-        $('.content').html(innerHTML).fadeIn(800);
-        console.log($('.content').css('display'));
+        $('.content').html(innerHTML).fadeIn(1000);
     }
 
     function loginPage() {
@@ -155,7 +151,7 @@ var visualize = (function () {
 })();
 
 var database = (function () {
-    function addBook () {
+    function addBook() {
         var category = $('#category_input').val();
         var book = $('#book_name_input').val();
         var author = $('#author_input').val();

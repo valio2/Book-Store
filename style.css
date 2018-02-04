@@ -230,6 +230,7 @@ header {
 .main-box .content .thumbnails-category div{
     width: 150px;
     display: inline-block;
+    vertical-align: top;
 }
 
 .main-box .content .thumbnails-category div img{

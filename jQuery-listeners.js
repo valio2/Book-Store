@@ -82,6 +82,13 @@ var listeners = (function () {
             .slideToggle(250);
     };
 
+    function openClickedCategory(evThis) {
+        evThis.toggleClass('open-category');
+        $('.open-category').children('.liDiv').slideToggle(250);
+        $('.open-category').children('.categ-in-text-wrapper').children('.categ-icon').toggleClass('fa-angle-double-right');
+        $('.open-category').children('.categ-in-text-wrapper').children('.categ-icon').toggleClass('fa-angle-double-down');
+    };
+
     function navCategories() {
         $(".nav").on("click", "ul.category", function (event) {
             var evThis = $(this);
@@ -91,13 +98,7 @@ var listeners = (function () {
 
                 if (!evThis.hasClass('open-category')) {
                     closeCurrentActiveCategory();
-
-                    (function openClickedCategory() {
-                        evThis.toggleClass('open-category');
-                        evThis.children('.liDiv').slideToggle(250);
-                        evThis.children('.categ-in-text-wrapper').children('.categ-icon').toggleClass('fa-angle-double-right');
-                        evThis.children('.categ-in-text-wrapper').children('.categ-icon').toggleClass('fa-angle-double-down');
-                    })();
+                    openClickedCategory(evThis);
                 } else {
                     closeCurrentActiveCategory();
                 }
@@ -107,16 +108,64 @@ var listeners = (function () {
 
     function navBook() {
         $(".nav").on("click", "ul.category .liDiv li", function (event) {
+
             var evThis = $(this);
             if (evThis.is('.nav ul.category .liDiv li')) {
                 event.stopPropagation();
                 $('.main-box .nav ul .liDiv li.selected').removeClass('selected');
                 evThis.addClass('selected');
 
+                var category = evThis.parent().siblings('.categ-in-text-wrapper').children('.categ-text').text().trim();
+                var title = evThis.children('.book-title').text().trim();
+                if ($('.content h1').html() !== title) {
+                    $('.content').fadeOut(300, function () {
+                        visualize.bookPage(category, title);
+                    });
+                }
+            }
+        })
+    }
+
+    function content_homePage_thumbnails() {
+        $('.content').on('click', '.thumbnails-category div', function () {
+            var evThis = $(this);
+            var category = evThis.siblings('h2').html();
+            var title = evThis.children('h6').text();
+
+            if ($('.content h1').html() !== title) {
                 $('.content').fadeOut(300, function () {
-                    visualize.bookPage(evThis);
+                    visualize.bookPage(category, title);
                 });
             }
+
+            (function openCategoryInNavAndColorTitle() {
+                var key = 0;
+                var firstElement;
+
+                function navDFS(element, find) {
+                    if (element.html() === find) {
+                        key = 1;
+                        if (find === category) {
+                            openClickedCategory(element.parent().parent());
+                        } else {
+                            element.parent().addClass('selected');
+                        }
+                        return;
+                    }
+                    if (key === 1) {
+                        return;
+                    }
+
+                    for (var ele of element.children()) {
+                        navDFS($(ele), find);
+                    }
+                }
+                firstElement = $('.nav .inner-wrapper-nav');
+                navDFS(firstElement, category);
+                key = 0;
+                firstElement = $('.nav .open-category').children('.liDiv');
+                navDFS(firstElement, title);
+            })();
         })
     }
 
@@ -132,7 +181,7 @@ var listeners = (function () {
                     loggedIn = 'logged-in';
                     $('.header-buttons .login-register-buttons').css("display", "none");
                     $('.header-buttons .logout_redirect').css("display", "block");
-                    $(".logo-box").click();
+                    $(".add_book_redirect").click();
                 } else {
                     $('.content').append('<p style="color:red">Wrong username or password</p>');
                 }
@@ -192,6 +241,7 @@ var listeners = (function () {
         homeButton,
         navCategories,
         navBook,
+        content_homePage_thumbnails,
         content_login_button,
         content_register_button,
         content_addBook_button,
