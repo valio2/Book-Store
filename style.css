@@ -231,6 +231,7 @@ header {
     width: 150px;
     display: inline-block;
     vertical-align: top;
+    cursor: pointer;
 }
 
 .main-box .content .thumbnails-category div img{

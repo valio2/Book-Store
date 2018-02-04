@@ -183,10 +183,14 @@ var listeners = (function () {
                     $('.header-buttons .logout_redirect').css("display", "block");
                     $(".add_book_redirect").click();
                 } else {
-                    $('.content').append('<p style="color:red">Wrong username or password</p>');
+                    if ($('.content').children(':last').html() !== 'Wrong username or password') {
+                        $('.content').append('<p style="color:red">Wrong username or password</p>');
+                    }
                 }
             } else {
-                $('.content').append('<p style="color:red">Wrong username or password</p>');
+                if ($('.content').children(':last').html() !== 'Wrong username or password') {
+                    $('.content').append('<p style="color:red">Wrong username or password</p>');
+                }
             }
         })
 
@@ -207,9 +211,6 @@ var listeners = (function () {
                 alert("Username already exists.");
             } else {
                 users[username] = password;
-                // $('#username_input').val('');
-                // $('#username_input').val('');
-                // $('.content').append("<p style='color:red'>You have successfully registered</p>")
                 loggedIn = 'logged-in';
                 $(".logo-box").click();
                 $('.header-buttons .login-register-buttons').css("display", "none");
