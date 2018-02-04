@@ -83,10 +83,12 @@ var listeners = (function () {
     };
 
     function openClickedCategory(evThis) {
-        evThis.toggleClass('open-category');
-        $('.open-category').children('.liDiv').slideToggle(250);
-        $('.open-category').children('.categ-in-text-wrapper').children('.categ-icon').toggleClass('fa-angle-double-right');
-        $('.open-category').children('.categ-in-text-wrapper').children('.categ-icon').toggleClass('fa-angle-double-down');
+        if (!evThis.hasClass('open-category')) {
+            evThis.toggleClass('open-category');
+            $('.open-category').children('.liDiv').slideToggle(250);
+            $('.open-category').children('.categ-in-text-wrapper').children('.categ-icon').toggleClass('fa-angle-double-right');
+            $('.open-category').children('.categ-in-text-wrapper').children('.categ-icon').toggleClass('fa-angle-double-down');
+        }
     };
 
     function navCategories() {
@@ -207,14 +209,18 @@ var listeners = (function () {
             var username = $('#username_input').val();
             var password = $('#password_input').val();
 
-            if (users[username]) {
-                alert("Username already exists.");
+            if (username.length > 0 && password.length > 4) {
+                if (users[username]) {
+                    alert("Username already exists.");
+                } else {
+                    users[username] = password;
+                    loggedIn = 'logged-in';
+                    $(".logo-box").click();
+                    $('.header-buttons .login-register-buttons').css("display", "none");
+                    $('.header-buttons .logout_redirect').css("display", "block");
+                }
             } else {
-                users[username] = password;
-                loggedIn = 'logged-in';
-                $(".logo-box").click();
-                $('.header-buttons .login-register-buttons').css("display", "none");
-                $('.header-buttons .logout_redirect').css("display", "block");
+                alert('Password must have at least 5 characters');
             }
         })
 
