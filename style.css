@@ -194,6 +194,10 @@ header {
     margin-bottom: 20px;
 }
 
+.main-box .content .home-page-wrapper {
+    width: 100%;
+}
+
 .main-box .content p.author {
     font-style: italic;
     margin-top: 5px;
