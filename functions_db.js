@@ -26,15 +26,7 @@ var visualize = (function () {
             categInnerTextWrapper.append(curP);
             var spanCurBookCount = $('<span></span>');
 
-            var countBooksInCateg = (function retunrsNumberOfBooksInCategory() {
-                var countBooks = 0;
-                for (book in categories[category]) {
-                    if (categories[category].hasOwnProperty(book)) {
-                        countBooks++;
-                    }
-                }
-                return countBooks;
-            })();
+            var countBooksInCateg = Object.keys(categories[category]).length;
 
             spanCurBookCount.text(' (' + countBooksInCateg.toString() + ')');
             categInnerTextWrapper.append(spanCurBookCount);
@@ -86,8 +78,7 @@ var visualize = (function () {
         var pages = categories[category][title]['pages'];
         var price = categories[category][title]['price'];
         var description = categories[category][title]['description'];
-        console.log(typeof price);
-        
+
         var innerHTML = `<h1>${title}</h1>
                 <p class="author">${author}</p>
                 <img src="${pic}" class="book-pic">
@@ -122,6 +113,14 @@ var visualize = (function () {
         $('.content').html(innerHTML).fadeIn(500);
     }
 
+    function editDatabasePage() {
+        var innerHTML = `<button id="add_book_button">Add Book</button>
+                <button id="remove_book_button">Remove Book</button>
+                <button id="edit_book_button">Edit Book</button>`;
+
+        $('.content').html(innerHTML).fadeIn(500);
+    }
+
     function addBookPage() {
         var innerHTML = `<p>Category: </p>
                     <input id="category_input" type="text">
@@ -145,13 +144,42 @@ var visualize = (function () {
         $('.content').html(innerHTML).fadeIn(500);
     }
 
+    function removeBookPage() {
+        var innerHTML = $('<div></div>');
+        var categorySelect = $('<select id="categorySelect"> <option value="" disabled selected>Select a category</option> </select>');
+        var bookSelect = $('<select id="bookSelect"> <option value="" disabled selected>Select a book</option> </select>');
+        var removeButton = $('<button id="remove_book">Remove Selected Book</button>');
+
+        for (category in categories) {
+            categorySelect.append(`<option value="${category}">${category}</option>`)
+        }
+
+        // $(".content").on('change', '#categorySelect', function () {
+        //     event.stopPropagation();
+        //     var innerBookSelect = $('<select id="bookSelect"></select>')
+        //     .append('<option value="" disabled selected>Select a book</option>');
+        //     var selectedCategory = $(event.target).val();
+        //     for (book in categories[selectedCategory]) {
+        //         innerBookSelect.append(`<option value="${book}">${book}</option>`);
+        //     }
+        //     $(".content #bookSelect").replaceWith(innerBookSelect);
+        // });
+
+        innerHTML.append(categorySelect);
+        innerHTML.append(bookSelect);
+        innerHTML.append(removeButton);
+        $('.content').html(innerHTML).fadeIn(500);
+    }
+
     return {
         navBar,
         homePage,
         bookPage,
         loginPage,
         registerPage,
+        editDatabasePage,
         addBookPage,
+        removeBookPage,
     }
 })();
 
@@ -210,6 +238,7 @@ var database = (function () {
     }
 
     // function removeBook () {
+    //     $('.content').html('');
 
     // }
 

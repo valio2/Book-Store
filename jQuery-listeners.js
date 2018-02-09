@@ -43,14 +43,14 @@ var listeners = (function () {
         })
     }
 
-    function header_addBook_button() {
-        $('.add_book_redirect').on('click', function () {
+    function header_edit_database() {
+        $('.edit_database').on('click', function () {
             closeCurrentActiveCategory();
             $('.main-box .nav ul .liDiv li.selected').removeClass('selected');
 
             if (loggedIn === 'logged-in') {
                 $('.content').fadeOut(300, function () {
-                    visualize.addBookPage();
+                    visualize.editDatabasePage();
                 })
             } else {
                 $('.content').fadeOut(300, function () {
@@ -58,6 +58,30 @@ var listeners = (function () {
                     $('.content').append('<h2 style="color:red">You need to log in before you can add books.</h2>')
                 })
             }
+        })
+    }
+
+    function edit_database_addBook() {
+        $('.content').on('click', '#add_book_button', function () {
+            $('.content').fadeOut(300, function () {
+                visualize.addBookPage();
+            })
+        })
+    }
+
+    function edit_database_removeBook() {
+        $('.content').on('click', '#remove_book_button', function () {
+            $('.content').fadeOut(300, function () {
+                visualize.removeBookPage();
+            })
+        })
+    }
+
+    function edit_database_editBook() {
+        $('.content').on('click', '#edit_book_button', function () {
+            $('.content').fadeOut(300, function () {
+                visualize.addBookPage();
+            })
         })
     }
 
@@ -183,7 +207,7 @@ var listeners = (function () {
                     loggedIn = 'logged-in';
                     $('.header-buttons .login-register-buttons').css("display", "none");
                     $('.header-buttons .logout_redirect').css("display", "block");
-                    $(".add_book_redirect").click();
+                    $(".edit_database").click();
                 } else {
                     if ($('.content').children(':last').html() !== 'Wrong username or password') {
                         $('.content').append('<p style="color:red">Wrong username or password</p>');
@@ -239,12 +263,44 @@ var listeners = (function () {
         })
     }
 
+    function content_removeBook_functionality() {
+        function list_books() {
+            event.stopPropagation();
+            var innerBookSelect = $('<select id="bookSelect"></select>')
+                .append('<option value="" disabled selected>Select a book</option>');
+            var selectedCategory = $('#categorySelect').val();
+            for (book in categories[selectedCategory]) {
+                innerBookSelect.append(`<option value="${book}">${book}</option>`);
+            }
+            $(".content #bookSelect").replaceWith(innerBookSelect);
+        };
+        $(".content").on('change', '#categorySelect', function () {
+            list_books();
+        });
+
+        $(".content").on('click', '#remove_book', function () {
+            var categ = $('#categorySelect').val();
+            var book = $('#bookSelect').val();
+            delete categories[categ][book];
+            
+            if (Object.keys(categories[categ]).length === 0) {
+                delete categories[categ];
+            }
+            
+            visualize.navBar();
+            list_books();
+        })
+    }
+
     return {
         header_logoBox,
         header_login_button,
         header_logout_button,
         header_register_button,
-        header_addBook_button,
+        header_edit_database,
+        edit_database_addBook,
+        edit_database_removeBook,
+        // edit_database_editBook,
         homeButton,
         navCategories,
         navBook,
@@ -252,5 +308,6 @@ var listeners = (function () {
         content_login_button,
         content_register_button,
         content_addBook_button,
+        content_removeBook_functionality,
     }
 })();
