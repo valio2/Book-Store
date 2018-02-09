@@ -64,7 +64,7 @@ var listeners = (function () {
     function edit_database_addBook() {
         $('.content').on('click', '#add_book_button', function () {
             $('.content').fadeOut(300, function () {
-                visualize.addBookPage();
+                visualize.editBookPage();
             })
         })
     }
@@ -72,7 +72,7 @@ var listeners = (function () {
     function edit_database_removeBook() {
         $('.content').on('click', '#remove_book_button', function () {
             $('.content').fadeOut(300, function () {
-                database.removeBook();
+                visualize.removeBookPage();
             })
         })
     }
@@ -80,7 +80,7 @@ var listeners = (function () {
     function edit_database_editBook() {
         $('.content').on('click', '#edit_book_button', function () {
             $('.content').fadeOut(300, function () {
-                visualize.addBookPage();
+                visualize.editBookPage();
             })
         })
     }
@@ -292,6 +292,62 @@ var listeners = (function () {
         })
     }
 
+    function content_editBook_functionality() {
+        function list_books() {
+            event.stopPropagation();
+            var innerBookSelect = $('<select id="bookSelect_edit"></select>')
+                .append('<option value="" disabled selected>Select a book</option>');
+            var selectedCategory = $('#categorySelect_edit').val();
+            for (book in categories[selectedCategory]) {
+                innerBookSelect.append(`<option value="${book}">${book}</option>`);
+            }
+            $(".content #bookSelect_edit").replaceWith(innerBookSelect);
+        };
+
+        $(".content").on('change', '#categorySelect_edit', function () {
+            list_books();
+        });
+
+        $(".content").on('change', '#bookSelect_edit', function() {
+            var category = $('#categorySelect_edit').val();
+            var book = $('#bookSelect_edit').val();
+            
+            var author = categories[category][book]['author'];
+            var year = categories[category][book]['year'];
+            var pic = categories[category][book]['pic'];
+            var pages = categories[category][book]['pages'];
+            var price = categories[category][book]['price'];
+            var desc = categories[category][book]['description'];
+            
+            if (book !== 'Select a book') {
+                var innerHTML = `<p>Author: </p>
+                    <input id="author_input" type="text" value="${author}">
+                    <p>Year: </p>
+                    <input id="year_input" type="text" value="${year}">
+                    <p>Picture: </p>
+                    <input id="picture_input" type="text" value="${pic}">
+                    <p>Pages: </p>
+                    <input id="pages_input" type="text" value="${pages}">
+                    <p>Price: </p>
+                    <input id="price_input" type="text" value="${price}">
+                    <p>Description: </p>
+                    <textarea id="description_input" type="text"></textarea>
+                    <br>`;
+            }
+            $('#edit_book').remove();
+            var removeButton = $('<button id="edit_book">Edit Selected Book</button>');
+            $('.content div')
+                .append(innerHTML)
+                .append(removeButton);
+                $('#description_input').val(`${desc}`)
+        })
+
+        $(".content").on('click', '#edit_book', function () {
+            database.editBook();
+
+        })
+    }
+
     return {
         header_logoBox,
         header_login_button,
@@ -300,7 +356,7 @@ var listeners = (function () {
         header_edit_database,
         edit_database_addBook,
         edit_database_removeBook,
-        // edit_database_editBook,
+        edit_database_editBook,
         homeButton,
         navCategories,
         navBook,
@@ -309,5 +365,6 @@ var listeners = (function () {
         content_register_button,
         content_addBook_button,
         content_removeBook_functionality,
+        content_editBook_functionality,
     }
 })();

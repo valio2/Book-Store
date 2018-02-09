@@ -144,6 +144,42 @@ var visualize = (function () {
         $('.content').html(innerHTML).fadeIn(500);
     }
 
+    function removeBookPage() {
+        var innerHTML = $('<div></div>');
+        var categorySelect = $('<select id="categorySelect"> <option value="" disabled selected>Select a category</option> </select>');
+        var bookSelect = $('<select id="bookSelect"> <option value="" disabled selected>Select a book</option> </select>');
+        var removeButton = $('<button id="remove_book">Remove Selected Book</button>');
+
+        for (category in categories) {
+            categorySelect.append(`<option value="${category}">${category}</option>`)
+        }
+
+        innerHTML.append(categorySelect)
+            .append('<br>')
+            .append(bookSelect)
+            .append('<br>')
+            .append(removeButton);
+        $('.content').html(innerHTML).fadeIn(500);
+    }
+
+    function editBookPage() {
+        var innerHTML = $('<div></div>');
+        var categorySelect = $('<select id="categorySelect_edit"> <option value="" disabled selected>Select a category</option> </select>');
+        var bookSelect = $('<select id="bookSelect_edit"> <option value="" disabled selected>Select a book</option> </select>');
+        var removeButton = $('<button id="edit_book">Edit Selected Book</button>');
+
+        for (category in categories) {
+            categorySelect.append(`<option value="${category}">${category}</option>`)
+        }
+
+        innerHTML.append(categorySelect)
+            .append('<br>')
+            .append(bookSelect)
+            .append('<br>')
+            .append(removeButton);
+        $('.content').html(innerHTML).fadeIn(500);
+    }
+
     return {
         navBar,
         homePage,
@@ -152,6 +188,8 @@ var visualize = (function () {
         registerPage,
         editDatabasePage,
         addBookPage,
+        removeBookPage,
+        editBookPage,
     }
 })();
 
@@ -209,26 +247,32 @@ var database = (function () {
         categories[category][book] = bookObj;
     }
 
-    function removeBook() {
-        var innerHTML = $('<div></div>');
-        var categorySelect = $('<select id="categorySelect"> <option value="" disabled selected>Select a category</option> </select>');
-        var bookSelect = $('<select id="bookSelect"> <option value="" disabled selected>Select a book</option> </select>');
-        var removeButton = $('<button id="remove_book">Remove Selected Book</button>');
+    function editBook() {
+        var category = $('#categorySelect_edit').val();
+        var book = $('#bookSelect_edit').val();
 
-        for (category in categories) {
-            categorySelect.append(`<option value="${category}">${category}</option>`)
+        var author = $('#author_input').val();
+        var year = $('#year_input').val();
+        var pic = $('#picture_input').val();
+        var pages = $('#pages_input').val();
+        var price = $('#price_input').val();
+        var desc = $('#description_input').val();
+
+        categories[category][book]['author'] = author;
+        categories[category][book]['year'] = year;
+        categories[category][book]['pic'] = pic;
+        categories[category][book]['pages'] = pages;
+        categories[category][book]['price'] = price;
+        categories[category][book]['description'] = desc;
+
+        if ($('.content').children(':last').html() !== 'Changes applied successfully.') {
+            $('.content').append('<p style="color:green">Changes applied successfully.</p>');
         }
-
-        innerHTML.append(categorySelect)
-            .append('<br>')
-            .append(bookSelect)
-            .append('<br>')
-            .append(removeButton);
-        $('.content').html(innerHTML).fadeIn(500);
     }
+    
 
     return {
         addBook,
-        removeBook,
+        editBook,
     }
 })();
