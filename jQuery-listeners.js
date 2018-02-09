@@ -12,6 +12,40 @@ var listeners = (function () {
         });
     }
 
+    function header_home() {
+        $('#header_home').on('click', function () {
+            $('.logo-box').click();
+        })
+    }
+
+    function header_contacts() {
+        $('#header_contacts').on('click', function () {
+            closeCurrentActiveCategory();
+            $('.main-box .nav ul .liDiv li.selected').removeClass('selected');
+
+            $('.content').fadeOut(300, function () {
+                $('.content').html('');
+                var paragraph = $('<p></p>').append(lipsum);
+                $('.content').append(paragraph);
+                $('.content').fadeIn(1000);
+            })
+        })
+    }
+
+    function header_about() {
+        $('#header_about').on('click', function () {
+            closeCurrentActiveCategory();
+            $('.main-box .nav ul .liDiv li.selected').removeClass('selected');
+
+            $('.content').fadeOut(300, function () {
+                $('.content').html('');
+                var paragraph = $('<p></p>').append(lipsum);
+                $('.content').append(paragraph);
+                $('.content').fadeIn(1000);
+            })
+        })
+    }
+
     function header_login_button() {
         $('.login_redirect').on('click', function () {
             closeCurrentActiveCategory();
@@ -19,7 +53,6 @@ var listeners = (function () {
 
             $('.content').fadeOut(300, function () {
                 visualize.loginPage();
-                // $('.content #username_input').focus();
             })
         })
     }
@@ -286,7 +319,7 @@ var listeners = (function () {
             if (Object.keys(categories[categ]).length === 0) {
                 delete categories[categ];
             }
-            
+
             visualize.navBar();
             list_books();
         })
@@ -308,17 +341,17 @@ var listeners = (function () {
             list_books();
         });
 
-        $(".content").on('change', '#bookSelect_edit', function() {
+        $(".content").on('change', '#bookSelect_edit', function () {
             var category = $('#categorySelect_edit').val();
             var book = $('#bookSelect_edit').val();
-            
+
             var author = categories[category][book]['author'];
             var year = categories[category][book]['year'];
             var pic = categories[category][book]['pic'];
             var pages = categories[category][book]['pages'];
             var price = categories[category][book]['price'];
             var desc = categories[category][book]['description'];
-            
+
             if (book !== 'Select a book') {
                 var innerHTML = `<p>Author: </p>
                     <input id="author_input" type="text" value="${author}">
@@ -339,7 +372,7 @@ var listeners = (function () {
             $('.content div')
                 .append(innerHTML)
                 .append(removeButton);
-                $('#description_input').val(`${desc}`)
+            $('#description_input').val(`${desc}`)
         })
 
         $(".content").on('click', '#edit_book', function () {
@@ -350,6 +383,9 @@ var listeners = (function () {
 
     return {
         header_logoBox,
+        header_home,
+        header_contacts,
+        header_about,
         header_login_button,
         header_logout_button,
         header_register_button,

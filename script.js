@@ -4,6 +4,9 @@ visualize.navBar();
 visualize.homePage();
 
 listeners.header_logoBox();
+listeners.header_home();
+listeners.header_contacts();
+listeners.header_about();
 listeners.homeButton();
 listeners.navCategories();
 listeners.navBook();
