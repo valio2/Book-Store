@@ -144,33 +144,6 @@ var visualize = (function () {
         $('.content').html(innerHTML).fadeIn(500);
     }
 
-    function removeBookPage() {
-        var innerHTML = $('<div></div>');
-        var categorySelect = $('<select id="categorySelect"> <option value="" disabled selected>Select a category</option> </select>');
-        var bookSelect = $('<select id="bookSelect"> <option value="" disabled selected>Select a book</option> </select>');
-        var removeButton = $('<button id="remove_book">Remove Selected Book</button>');
-
-        for (category in categories) {
-            categorySelect.append(`<option value="${category}">${category}</option>`)
-        }
-
-        // $(".content").on('change', '#categorySelect', function () {
-        //     event.stopPropagation();
-        //     var innerBookSelect = $('<select id="bookSelect"></select>')
-        //     .append('<option value="" disabled selected>Select a book</option>');
-        //     var selectedCategory = $(event.target).val();
-        //     for (book in categories[selectedCategory]) {
-        //         innerBookSelect.append(`<option value="${book}">${book}</option>`);
-        //     }
-        //     $(".content #bookSelect").replaceWith(innerBookSelect);
-        // });
-
-        innerHTML.append(categorySelect);
-        innerHTML.append(bookSelect);
-        innerHTML.append(removeButton);
-        $('.content').html(innerHTML).fadeIn(500);
-    }
-
     return {
         navBar,
         homePage,
@@ -179,7 +152,6 @@ var visualize = (function () {
         registerPage,
         editDatabasePage,
         addBookPage,
-        removeBookPage,
     }
 })();
 
@@ -237,13 +209,26 @@ var database = (function () {
         categories[category][book] = bookObj;
     }
 
-    // function removeBook () {
-    //     $('.content').html('');
+    function removeBook() {
+        var innerHTML = $('<div></div>');
+        var categorySelect = $('<select id="categorySelect"> <option value="" disabled selected>Select a category</option> </select>');
+        var bookSelect = $('<select id="bookSelect"> <option value="" disabled selected>Select a book</option> </select>');
+        var removeButton = $('<button id="remove_book">Remove Selected Book</button>');
 
-    // }
+        for (category in categories) {
+            categorySelect.append(`<option value="${category}">${category}</option>`)
+        }
+
+        innerHTML.append(categorySelect)
+            .append('<br>')
+            .append(bookSelect)
+            .append('<br>')
+            .append(removeButton);
+        $('.content').html(innerHTML).fadeIn(500);
+    }
 
     return {
         addBook,
-        // removeBook,
+        removeBook,
     }
 })();

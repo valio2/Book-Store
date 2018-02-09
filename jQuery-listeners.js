@@ -72,7 +72,7 @@ var listeners = (function () {
     function edit_database_removeBook() {
         $('.content').on('click', '#remove_book_button', function () {
             $('.content').fadeOut(300, function () {
-                visualize.removeBookPage();
+                database.removeBook();
             })
         })
     }
@@ -282,7 +282,7 @@ var listeners = (function () {
             var categ = $('#categorySelect').val();
             var book = $('#bookSelect').val();
             delete categories[categ][book];
-            
+
             if (Object.keys(categories[categ]).length === 0) {
                 delete categories[categ];
             }
