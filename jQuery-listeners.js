@@ -97,7 +97,7 @@ var listeners = (function () {
     function edit_database_addBook() {
         $('.content').on('click', '#add_book_button', function () {
             $('.content').fadeOut(300, function () {
-                visualize.editBookPage();
+                visualize.addBookPage();
             })
         })
     }
