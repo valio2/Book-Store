@@ -246,14 +246,14 @@ var database = (function () {
         }
         categories[category][book] = bookObj;
         
-        $('#category_input').val('');
-        $('#book_name_input').val('');
-        $('#author_input').val('');
-        $('#year_input').val('');
-        $('#pic_input').val('');
-        $('#pages_input').val('');
-        $('#price_input').val('');
-        $('#description_input').val('');
+        $('#category_input').html('');
+        $('#book_name_input').html('');
+        $('#author_input').html('');
+        $('#year_input').html('');
+        $('#pic_input').html('');
+        $('#pages_input').html('');
+        $('#price_input').html('');
+        $('#description_input').html('');
     }
 
     function editBook() {
