@@ -245,15 +245,6 @@ var database = (function () {
             categories[category] = {};
         }
         categories[category][book] = bookObj;
-        
-        $('#category_input').html('');
-        $('#book_name_input').html('');
-        $('#author_input').html('');
-        $('#year_input').html('');
-        $('#pic_input').html('');
-        $('#pages_input').html('');
-        $('#price_input').html('');
-        $('#description_input').html('');
     }
 
     function editBook() {
@@ -277,6 +268,8 @@ var database = (function () {
         if ($('.content').children(':last').html() !== 'Changes applied successfully.') {
             $('.content').append('<p style="color:green">Changes applied successfully.</p>');
         }
+    }
+
 
     return {
         addBook,
