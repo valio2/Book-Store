@@ -298,7 +298,7 @@ var listeners = (function () {
 
     function content_removeBook_functionality() {
         function list_books() {
-            event.stopPropagation();
+            // event.stopPropagation();
             var innerBookSelect = $('<select id="bookSelect"></select>')
                 .append('<option value="" disabled selected>Select a book</option>');
             var selectedCategory = $('#categorySelect').val();
@@ -327,7 +327,7 @@ var listeners = (function () {
 
     function content_editBook_functionality() {
         function list_books() {
-            event.stopPropagation();
+            // event.stopPropagation();
             var innerBookSelect = $('<select id="bookSelect_edit"></select>')
                 .append('<option value="" disabled selected>Select a book</option>');
             var selectedCategory = $('#categorySelect_edit').val();
