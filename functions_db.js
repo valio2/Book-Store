@@ -245,6 +245,7 @@ var database = (function () {
             categories[category] = {};
         }
         categories[category][book] = bookObj;
+        visualize.addBookPage();
     }
 
     function editBook() {
