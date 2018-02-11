@@ -20,6 +20,7 @@ listeners.edit_database_editBook();
 listeners.content_homePage_thumbnails();
 listeners.content_login_button();
 listeners.content_register_button();
+listeners.content_removeWarnings();
 listeners.content_addBook_button();
 listeners.content_removeBook_functionality();
 listeners.content_editBook_functionality();

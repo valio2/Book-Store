@@ -289,11 +289,21 @@ var listeners = (function () {
         })
     }
 
+    function content_removeWarnings() {
+        $('.content').on('click', 'input, textarea', function () {
+            var next = $(event.target).next();
+
+            if (next.is('#warnings')) {
+                next.remove();
+            }
+        })
+    }
     function content_addBook_button() {
         $('.content').on('click', '.add_button', function () {
             database.addBook();
             visualize.navBar();
         })
+
     }
 
     function content_removeBook_functionality() {
@@ -381,7 +391,7 @@ var listeners = (function () {
         })
     }
 
-    
+
     return {
         header_logoBox,
         header_home,
@@ -400,6 +410,7 @@ var listeners = (function () {
         content_homePage_thumbnails,
         content_login_button,
         content_register_button,
+        content_removeWarnings,
         content_addBook_button,
         content_removeBook_functionality,
         content_editBook_functionality,
