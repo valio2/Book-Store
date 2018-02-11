@@ -203,49 +203,65 @@ var database = (function () {
         var pages = $('#pages_input').val();
         var price = $('#price_input').val();
         var description = $('#description_input').val();
-
+        var key = true;
         //validating entry details
         if (category.length < 1) {
-            alert("Category must have at least 1 symbol.");
-            return;
+            // alert("Category must have at least 1 symbol.");
+            $('#category_input').after("<p id='warnings'>Category must have at least 1 symbol.</p>");
+            key = false;
+            // return;
         }
         if (book.length < 1) {
-            alert("Book name must have at least 1 symbol.");
-            return;
+            // alert("Book name must have at least 1 symbol.");
+            $('#book_name_input').after("<p id='warnings'>Book name must have at least 1 symbol.</p>");
+            // return;
+            key = false;
         }
         if (author.length < 1) {
-            alert("Author must have at least 1 symbol.");
-            return;
+            // alert("Author must have at least 1 symbol.");
+            $('#author_input').after("<p id='warnings'>Author must have at least 1 symbol.</p>");
+            // return;
+            key = false;
         }
         if (year.length !== 4 || isNaN(Number(year)) || year < 0) {
-            alert("Year must be contain only numbers and have 4 digits");
-            return;
+            // alert("Year must be contain only numbers and have 4 digits");
+            $('#year_input').after("<p id='warnings'>Year must be contain only numbers and have 4 digits</p>");
+            // return;
+            key = false;
         }
         if (pages.length < 1 || isNaN(Number(pages)) || pages < 1) {
-            alert("Pages must be a positive integer");
-            return;
+            // alert("Pages must be a positive integer.");
+            $('#pages_input').after("<p id='warnings'>Pages must be a positive integer.</p>");
+            // return;
+            key = false;
         }
         if (price.length < 1 || isNaN(Number(price)) || price < 0) {
-            alert("Price must be a positive integer");
-            return;
+            // alert("Price must be a positive integer");
+            $('#price_input').after("<p id='warnings'>Price must be a positive integer.</p>");
+            // return;
+            key = false;
         }
         if (description.length < 15) {
-            alert("Description must have at least 15 characters");
-            return;
+            // alert("Description must have at least 15 characters");
+            $('#description_input').after("<p id='warnings'>Description must have at least 15 characters.</p>");
+            // return;
+            key = false;
         }
-        var bookObj = {
-            'author': author,
-            'year': year,
-            'pic': pic,
-            'pages': pages,
-            'description': description,
-            'price': price,
-        };
-        if (!categories[category]) {
-            categories[category] = {};
+        if (key === true) {
+            var bookObj = {
+                'author': author,
+                'year': year,
+                'pic': pic,
+                'pages': pages,
+                'description': description,
+                'price': price,
+            };
+            if (!categories[category]) {
+                categories[category] = {};
+            }
+            categories[category][book] = bookObj;
+            visualize.addBookPage();
         }
-        categories[category][book] = bookObj;
-        visualize.addBookPage();
     }
 
     function editBook() {

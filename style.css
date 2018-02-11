@@ -194,6 +194,12 @@ header {
     margin-bottom: 20px;
 }
 
+.main-box .content #warnings {
+    font-size: 14px;
+    color: red;
+    margin-bottom: 5px;
+}
+
 .main-box .content .home-page-wrapper {
     width: 100%;
 }
