@@ -287,7 +287,6 @@ var database = (function () {
         }
     }
 
-
     return {
         addBook,
         editBook,
